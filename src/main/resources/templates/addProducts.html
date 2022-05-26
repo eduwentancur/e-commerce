@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet"> 
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+    </head>
+    <body>
+        
+        <div>
+            <div class="col-12">
+                <h3 class="text-center"> Agregar un producto </h3>
+                <hr>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="/addProduct.html" >Agregar Producto</a></li>
+                    <li class="list-inline-item"><a href="/listProducts.html" >Lista de Productos</a></li>
+                </ul>
+                <div class="col-6">
+                    <form action="/addP" method="Post">
+                        <div class="form-group">
+                            <label for="name">Nombre del Producto</label>
+                            <input type="text" name="pname" id="name" class="form-control">
+                            <label for="price">Precio del producto</label>
+                            <input type="number" name="price" id="price" class="form-control">
+                            <label for="desc">Descripcion del producto</label>
+                            <input type="text" name="desc" id="desc" class="form-control">
+                            <br>
+                            <button type="submit" class="btn btn-primary"> Agregar </button>
+                            
+                        </div>    
+                    </form>
+                    
+                    
+                </div>
+                
+            </div>
+               
+            
+            
+        </div>
+        
+        
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-3.6.0.min.js"></script>
+            
+    </body>
+</html>
