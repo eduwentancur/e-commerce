@@ -3,6 +3,7 @@ package com.demo.ecommerce.controller;
 
 import com.demo.ecommerce.models.Product;
 import com.demo.ecommerce.repository.ProductRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,21 +18,28 @@ public class ProductController {
     private ProductRepository productRepo;
     
     
+    @GetMapping("/")
+    public String showProducts(){
+        
+        
+        
+        
+        return "addProducts";
+    
+    }
+    
     @GetMapping("/listProducts.html")
     public String mostrarEjemplo(Model model){
         
+        List<Product> products = productRepo.findAll();
+        model.addAttribute("products", products);
         
         
         return "listProducts";
         
     }
     
-    @GetMapping("/")
-    public String showProducts(){
-    
-        return "addProducts";
-    
-    }
+   
     
     @PostMapping("/addP")
     public String saveProduct(@RequestParam("pname") String name,@RequestParam("price") Integer price,@RequestParam("desc") String description){
@@ -40,10 +48,7 @@ public class ProductController {
         producto.setPrice(price);
         producto.setDescription(description);
         productRepo.save(producto);
-        
-        
         return "redirect:/listProducts.html";
-    
     }
     
 }

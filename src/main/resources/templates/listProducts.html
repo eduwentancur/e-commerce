@@ -5,11 +5,10 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.css" rel="stylesheet"> 
-        <link rel="stylesheet" th:href="@{/css/styles.css}">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     </head>
     <body>
-        
+
         <div>
             <div class="col-12">
                 <h3 class="text-center"> Lista de Productos</h3>
@@ -18,17 +17,43 @@
                     <li class="list-inline-item"><a href="/addProducts.html" >Agregar Producto</a></li>
                     <li class="list-inline-item"><a href="/listProducts.html" >Lista de Productos</a></li>
                 </ul>
-              
                 
+                <table class="table table-info ">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Eliminar Producto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="products : ${products}">
+                            <td th:text="${products.id}"></td>
+                            <td th:text="${products.name}"></td>
+                            <td th:text="${products.description}"></td>
+                            <td th:text="${products.price}"></td>
+                            <td><a th:href="@{/deleteProd/} + ${products.id}" class="btn btn-danger">Eliminar</a></td>
+
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+
             </div>
-               
-            
-            
+
+
+
+
+
+
         </div>
-        
-        
-        <script src="js/bootstrap.bundle.js"></script>
+
+
+        <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery-3.6.0.min.js"></script>
-            
+
     </body>
 </html>
